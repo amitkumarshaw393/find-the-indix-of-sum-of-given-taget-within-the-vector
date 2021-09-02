@@ -1,0 +1,45 @@
+/* 
+Input : 5 14
+        6 5 3 11 10
+output: 2 3    [here the values at 2nd and 3rd index value 
+                when added gives the target value that is 14 ]
+*/
+
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+
+using namespace std;
+ int main(void)
+ {
+ 	int n,target,a;
+ 	cout<<"Enter the number of element ";
+ 	cin>>n;
+ 	cout<<"Enter the target";
+ 	cin>>target;
+ 	vector<int>v1;
+ 	for(int i=0;i<n;i++)
+	 {
+ 	cin>>a;
+ 	v1.push_back(a);
+ 	}
+ 	unordered_map<int,int>mp;
+ 	for(int i=0;i<v1.size();i++)
+ 	mp[v1[i]]++;
+ 	
+ 	
+	for(int i=0;i<n;i++)
+	 {
+	 
+ 	if(mp.find(target-v1[i])!=mp.end())
+ 	{
+ 		auto temp=mp.find(target-v1[i]);
+ 		auto res=i;
+ 			cout<<res<<","<<temp->first;
+ 		break;
+	 }
+ 	
+ 	}
+ 	
+ 		
+ }
